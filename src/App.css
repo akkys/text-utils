@@ -1,0 +1,12 @@
+.App {
+  height: 100vh;
+  font-family: fantasy;
+}
+
+.textarea {
+  border: none;
+}
+
+.alert {
+  margin-bottom: 0;
+}

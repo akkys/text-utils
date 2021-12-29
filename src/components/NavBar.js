@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function NavBar(props) {
+  var modes = props.mode === "light" ? "dark" : "light";
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      style={{ borderBottom: "1px solid white" }}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          {props.title}
+          <h3>{props.title}</h3>
         </a>
         <button
           className="navbar-toggler"
@@ -25,22 +29,22 @@ function NavBar(props) {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                About
-              </a>
-            </li>
           </ul>
           <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
+            <div className="form-check form-switch">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckChecked"
+                onClick={props.handleModes}
+              />
+              <label
+                className={`form-check-label text-${modes}`}
+                htmlFor="flexSwitchCheckChecked"
+              >
+                {props.btnText}
+              </label>
+            </div>
           </form>
         </div>
       </div>
